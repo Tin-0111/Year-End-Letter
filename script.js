@@ -8,13 +8,12 @@ function executeSearch() {
   if (searchInput.value.trim() !== "") {
     // 검색창과 텍스트 서서히 사라지게 처리
     searchContainer.style.transition = 'opacity 0.5s ease';
-    searchContainer.style.opacity = '0';
+    searchContainer.style.opacity = '0'; // 화면에서 서서히 사라지도록 설정
     
     setTimeout(() => {
-      // 완전히 숨기고 로딩 화면 표시
-      searchContainer.style.display = 'none'; 
+      searchContainer.style.display = 'none'; // 완전히 숨기기
       loadingContainer.classList.add('active'); // 로딩 화면 활성화
-    }, 500); // 사라지는 애니메이션 시간과 일치하게 설정
+    }, 500); // 500ms 후 로딩 화면이 나타나도록 설정
   } else {
     alert("검색어를 입력해주세요.");
   }
