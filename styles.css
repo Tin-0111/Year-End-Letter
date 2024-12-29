@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url('3ffdefb4021d004175aa06658eabacd0.jpg') no-repeat center center fixed;
+  background: url('space.gif') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -64,18 +64,22 @@ body {
 
 .hidden {
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
 }
 
 .loading-container {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .loading-container.active {
-  display: flex; /* active 클래스가 추가되면 보이게 설정 */
+  opacity: 1;
+  visibility: visible;
 }
 
 .loading-image {
