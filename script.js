@@ -20,6 +20,17 @@ function createCard(cardName) {
   const card = document.createElement('div');
   card.classList.add('card');
   card.innerHTML = `<div class="card-text">To. ${cardName}</div>`;
+
+  // 카드 클릭 이벤트
+  card.addEventListener('click', () => {
+    const userInput = prompt(`"${cardName}" 카드 인증키를 입력하세요:`);
+    if (userInput) {
+      alert(`인증키 "${userInput}"를 입력하셨습니다.`);
+    } else {
+      alert("인증키 입력이 취소되었습니다.");
+    }
+  });
+
   return card;
 }
 
