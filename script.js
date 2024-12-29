@@ -6,12 +6,15 @@ const loadingContainer = document.querySelector('.loading-container');
 // 검색 실행 함수
 function executeSearch() {
   if (searchInput.value.trim() !== "") {
-    // 현재 화면에 있는 검색창과 텍스트를 서서히 사라지게 처리
-    searchContainer.classList.add('hidden');
+    // 검색창과 텍스트 서서히 사라지게 처리
+    searchContainer.style.transition = 'opacity 0.5s ease';
+    searchContainer.style.opacity = '0';
+    
     setTimeout(() => {
-      searchContainer.style.display = 'none'; // 완전히 숨김
-      loadingContainer.classList.add('active'); // 로딩 화면 표시
-    }, 500); // 사라지는 애니메이션 시간을 고려
+      // 완전히 숨기고 로딩 화면 표시
+      searchContainer.style.display = 'none'; 
+      loadingContainer.classList.add('active'); // 로딩 화면 활성화
+    }, 500); // 사라지는 애니메이션 시간과 일치하게 설정
   } else {
     alert("검색어를 입력해주세요.");
   }
