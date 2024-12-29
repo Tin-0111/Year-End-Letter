@@ -75,7 +75,7 @@ body {
 }
 
 .loading-container.active {
-  display: flex;
+  display: flex; /* active 클래스가 추가되면 보이게 설정 */
 }
 
 .loading-image {
