@@ -1,3 +1,4 @@
+/* 기존 스타일 유지 */
 body {
   margin: 0;
   padding: 0;
@@ -19,6 +20,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 600px;
+  transition: opacity 0.5s ease;
 }
 
 .title {
@@ -58,4 +60,30 @@ body {
   font-size: 14px;
   margin-top: 10px;
   opacity: 0.8;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-container.active {
+  display: flex;
+}
+
+.loading-image {
+  width: 100px;
+  height: 100px;
+}
+
+.loading-text {
+  margin-top: 10px;
+  font-size: 18px;
 }
