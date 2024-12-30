@@ -30,7 +30,7 @@ function createCard(cardName) {
 
   // 카드 클릭 이벤트
   card.addEventListener('click', () => {
-    const userInput = prompt(`"${cardName}" 카드 인증키를 입력하세요:`);
+    const userInput = prompt(`"${cardName}" / 인증키를 입력해주세요:`);
     const cardData = cards.find(c => c.name === cardName);
     if (userInput === cardData.key) {
       // 인증키가 맞으면 로딩화면 표시하고 메시지 불러오기
@@ -39,7 +39,7 @@ function createCard(cardName) {
         displayCardContent(cardData); // 카드 내용 표시
       }, 2000); // 2초 후에 카드 내용 표시
     } else {
-      alert("잘못된 인증키!");
+      alert("인증키가 맞지 않습니다.");
     }
   });
 
