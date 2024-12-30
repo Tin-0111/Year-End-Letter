@@ -17,7 +17,7 @@ const cards = [
 
 // 홈 버튼 추가
 const homeButton = document.createElement('button');
-homeButton.textContent = "홈으로 가기";
+homeButton.textContent = "🏠홈화면";
 homeButton.classList.add('home-button');
 homeButton.onclick = () => window.location.reload(); // 새로고침으로 홈으로 돌아가기
 document.body.appendChild(homeButton);
