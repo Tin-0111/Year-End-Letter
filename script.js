@@ -73,56 +73,91 @@ function renderCards(cards) {
   }
 }
 
-// 검색 실행 함수
-function executeSearch() {
-  if (searchInput.value.trim() !== "") {
-    // 검색창과 텍스트 서서히 사라지게 처리
-    searchContainer.style.transition = 'opacity 0.5s ease';
-    searchContainer.style.opacity = '0'; // 화면에서 서서히 사라지도록 설정
-    
-    setTimeout(() => {
-      searchContainer.style.display = 'none'; // 완전히 숨기기
-      loadingContainer.classList.add('active'); // 로딩 화면 활성화
-    }, 500); // 500ms 후 로딩 화면이 나타나도록 설정
+// 검색 이벤트
+function searchCards(query) {
+  return cardsData.filter((card) =>
+    card.title.toLowerCase().includes(query.toLowerCase())
+  );
+}
 
-    // 2초 후에 검색된 카드들을 필터링하고 출력
-    setTimeout(() => {
-      loadingContainer.classList.remove('active'); // 로딩 화면 비활성화
+// 검색 버튼 클릭 이벤트
+searchButton.addEventListener("click", () => {
+  const query = searchInput.value.trim();
+  if (!query) return;
 
-      // 카드 필터링
-      const searchTerm = searchInput.value.toLowerCase();
-      const filteredCards = cards.filter(card =>
-        card.name.toLowerCase().includes(searchTerm)
-      );
+  loadingContainer.classList.add("active");
+  noResultsContainer.classList.remove("active");
+  cardsContainer.innerHTML = "";
 
-      // 기존 카드들 삭제
-      cardsContainer.innerHTML = '';
+  // 서서히 사라지는 효과
+  const title = document.querySelector(".title");
+  const subtitle = document.querySelector(".subtitle");
+  title.classList.add("hidden");
+  subtitle.classList.add("hidden");
+  searchInput.classList.add("hidden");
+  searchButton.classList.add("hidden");
 
-      if (filteredCards.length > 0) {
-        // 카드가 있으면 출력
-        filteredCards.forEach(card => {
-          const cardElement = createCard(card.name);
-          cardsContainer.appendChild(cardElement);
-        });
-        cardsContainer.classList.remove('hidden');
-        noResultsContainer.classList.remove('active');
-      } else {
-        // 카드가 없으면 "결과 없음" 출력
-        noResultsContainer.classList.add('active');
-        cardsContainer.classList.add('hidden');
-      }
-    }, 2000); // 2초 뒤에 결과 보여주기
+  setTimeout(() => {
+    loadingContainer.classList.remove("active");
+    const results = searchCards(query);
+    renderCards(results);
+  }, 2000);
+});
+
+// 엔터키로 검색 기능
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchButton.click(); // 버튼 클릭과 동일하게 처리
+  }
+});
+
+// 검색창에 있는 모든 글씨 서서히 사라지게 처리
+function clearScreen() {
+  const title = document.querySelector(".title");
+  const subtitle = document.querySelector(".subtitle");
+  const searchInput = document.querySelector(".search-box input");
+  const searchButton = document.querySelector(".search-icon");
+
+  title.classList.add("hidden");
+  subtitle.classList.add("hidden");
+  searchInput.classList.add("hidden");
+  searchButton.classList.add("hidden");
+}
+
+// 로딩 화면 및 검색 결과 표시
+function showLoading() {
+  loadingContainer.classList.add("active");
+}
+
+// 검색 결과 없음 처리
+function showNoResults() {
+  noResultsContainer.classList.add("active");
+}
+
+// 검색어 입력 후 결과 출력
+function handleSearch(query) {
+  const results = searchCards(query);
+  if (results.length === 0) {
+    showNoResults();
   } else {
-    alert("검색어를 입력해주세요.");
+    renderCards(results);
   }
 }
 
-// 버튼 클릭으로 검색 실행
-searchButton.addEventListener('click', executeSearch);
+// 검색 버튼 클릭시 로딩 화면 및 검색 결과 표시
+searchButton.addEventListener("click", () => {
+  const query = searchInput.value.trim();
+  if (!query) return;
 
-// 엔터 키로 검색 실행
-searchInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    executeSearch();
-  }
+  // 화면 서서히 사라지는 효과
+  clearScreen();
+  showLoading();
+
+  setTimeout(() => {
+    loadingContainer.classList.remove("active");
+    handleSearch(query);
+  }, 2000);
 });
+
+// 초기 화면에 카드 리스트 렌더링 (디폴트 카드 목록)
+renderCards(cardsData);
