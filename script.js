@@ -33,7 +33,11 @@ function createCard(cardName) {
     const userInput = prompt(`"${cardName}" 카드 인증키를 입력하세요:`);
     const cardData = cards.find(c => c.name === cardName);
     if (userInput === cardData.key) {
-      displayCardContent(cardData); // 올바른 인증키면 내용 표시
+      // 인증키가 맞으면 로딩화면 표시하고 메시지 불러오기
+      showLoadingMessage();
+      setTimeout(() => {
+        displayCardContent(cardData); // 카드 내용 표시
+      }, 2000); // 2초 후에 카드 내용 표시
     } else {
       alert("잘못된 인증키!");
     }
@@ -60,6 +64,15 @@ function displayCardContent(card) {
   cardDisplay.appendChild(content);
   cardsContainer.innerHTML = ''; // 기존 카드들 제거
   cardsContainer.appendChild(cardDisplay);
+}
+
+// 로딩 화면 표시
+function showLoadingMessage() {
+  loadingContainer.classList.add('active');
+  const loadingText = document.createElement('div');
+  loadingText.classList.add('loading-text');
+  loadingText.textContent = "메시지를 불러오는 중...";
+  loadingContainer.appendChild(loadingText);
 }
 
 // 검색 실행 함수
