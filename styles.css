@@ -1,34 +1,35 @@
 /* Nanum Pen Script 폰트 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
-/* 기본 글꼴 스타일 */
+/* 기본 스타일 */
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url('pexels-felixmittermeier-1146134.jpg') no-repeat center center fixed;
+  background: url('space.gif') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: white;
-  font-family: "Nanum Pen Script", serif; /* Nanum Pen Script 적용 */
+  font-family: "Nanum Pen Script", serif;
   text-align: center;
+  font-size: 18px; /* 전체 글씨 크기 기본값 */
 }
 
 /* 검색창 컨테이너 */
 .search-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* 왼쪽 정렬 */
   width: 100%;
   max-width: 600px;
   transition: opacity 0.5s ease;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 28px; /* 제목 글씨 크기 확대 */
   margin-bottom: 20px;
 }
 
@@ -45,7 +46,7 @@ body {
 .search-box input {
   width: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   outline: none;
   background: none;
@@ -56,7 +57,7 @@ body {
 /* `placeholder` 텍스트 색상 */
 .search-box input::placeholder {
   color: white;
-  opacity: 0.7; /* 약간 투명하게 설정 */
+  opacity: 0.7;
 }
 
 .search-icon {
@@ -65,15 +66,19 @@ body {
   color: white;
   padding: 10px 15px;
   cursor: pointer;
-  order: 2; /* 돋보기 버튼을 오른쪽으로 이동 */
+  order: 2;
 }
 
-/* 작은 글씨 (설명 텍스트) */
 .subtitle {
-  font-size: 14px;
+  font-size: 16px; /* 하단 텍스트 크기 확대 */
   margin-top: 10px;
   opacity: 0.8;
-  color: white; /* 텍스트 색상을 흰색으로 설정 */
+  color: white;
+}
+
+/* 텍스트 정렬을 검색창과 일치 */
+.title, .subtitle {
+  margin-left: 20px; /* 검색창과 동일한 시작 지점으로 이동 */
 }
 
 /* 숨김 처리 */
@@ -109,7 +114,7 @@ body {
 
 .loading-text {
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* 카드 컨테이너 */
@@ -139,7 +144,7 @@ body {
 }
 
 .card-text {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* 검색 결과 없음 스타일 */
@@ -167,6 +172,6 @@ body {
 }
 
 .no-results-text {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 10px;
 }
