@@ -203,10 +203,13 @@ body {
   font-size: 1.2rem;
   line-height: 1.5;
   color: black;
-  word-wrap: break-word; /* 단어를 기준으로 줄바꿈 */
-  overflow-wrap: break-word; /* 오래된 브라우저 호환성 */
+  display: block; /* 블록 요소로 설정 */
+  word-wrap: break-word; /* 단어 기준으로 줄바꿈 */
+  overflow-wrap: break-word; /* 오래된 브라우저 호환 */
   white-space: normal; /* 기본 공백 처리 */
-  max-height: 300px; /* 적절한 높이 설정 */
+  line-height: 1.5; /* 줄 간격 설정 */
+  text-align: justify; /* 텍스트 정렬 */
+  max-height: 500px; /* 적절한 높이 설정 */
   overflow-y: auto; /* 세로 스크롤 활성화 */
 }
 
