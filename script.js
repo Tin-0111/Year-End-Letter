@@ -73,25 +73,56 @@ function renderCards(cards) {
   }
 }
 
-// 검색 이벤트
-function searchCards(query) {
-  return cardsData.filter((card) =>
-    card.title.toLowerCase().includes(query.toLowerCase())
-  );
+// 검색 실행 함수
+function executeSearch() {
+  if (searchInput.value.trim() !== "") {
+    // 검색창과 텍스트 서서히 사라지게 처리
+    searchContainer.style.transition = 'opacity 0.5s ease';
+    searchContainer.style.opacity = '0'; // 화면에서 서서히 사라지도록 설정
+    
+    setTimeout(() => {
+      searchContainer.style.display = 'none'; // 완전히 숨기기
+      loadingContainer.classList.add('active'); // 로딩 화면 활성화
+    }, 500); // 500ms 후 로딩 화면이 나타나도록 설정
+
+    // 2초 후에 검색된 카드들을 필터링하고 출력
+    setTimeout(() => {
+      loadingContainer.classList.remove('active'); // 로딩 화면 비활성화
+
+      // 카드 필터링
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredCards = cards.filter(card =>
+        card.name.toLowerCase().includes(searchTerm)
+      );
+
+      // 기존 카드들 삭제
+      cardsContainer.innerHTML = '';
+
+      if (filteredCards.length > 0) {
+        // 카드가 있으면 출력
+        filteredCards.forEach(card => {
+          const cardElement = createCard(card.name);
+          cardsContainer.appendChild(cardElement);
+        });
+        cardsContainer.classList.remove('hidden');
+        noResultsContainer.classList.remove('active');
+      } else {
+        // 카드가 없으면 "결과 없음" 출력
+        noResultsContainer.classList.add('active');
+        cardsContainer.classList.add('hidden');
+      }
+    }, 2000); // 2초 뒤에 결과 보여주기
+  } else {
+    alert("검색어를 입력해주세요.");
+  }
 }
 
-// 검색 버튼 클릭 이벤트
-searchButton.addEventListener("click", () => {
-  const query = searchInput.value.trim();
-  if (!query) return;
+// 버튼 클릭으로 검색 실행
+searchButton.addEventListener('click', executeSearch);
 
-  loadingContainer.classList.add("active");
-  noResultsContainer.classList.remove("active");
-  cardsContainer.innerHTML = "";
-
-  setTimeout(() => {
-    loadingContainer.classList.remove("active");
-    const results = searchCards(query);
-    renderCards(results);
-  }, 2000);
+// 엔터 키로 검색 실행
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    executeSearch();
+  }
 });
