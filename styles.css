@@ -220,3 +220,23 @@ body {
   font-size: 24px;
   color: white;
 }
+
+/* 미디어 쿼리 (모바일 대응) */
+@media (max-width: 600px) {
+  .card-display {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-content {
+    font-size: 16px;
+  }
+
+  .home-button {
+    font-size: 16px;
+  }
+}
