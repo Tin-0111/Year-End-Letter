@@ -50,13 +50,19 @@ body {
   caret-color: white;
 }
 
+/* `placeholder` 텍스트 색상 */
+.search-box input::placeholder {
+  color: white;
+  opacity: 0.7; /* 약간 투명하게 설정 */
+}
+
 .search-icon {
   background: none;
   border: none;
   color: white;
   padding: 10px 15px;
   cursor: pointer;
-  order: 2; /* 버튼을 오른쪽으로 이동 */
+  order: 2; /* 돋보기 버튼을 오른쪽으로 이동 */
 }
 
 /* 작은 글씨 (설명 텍스트) */
@@ -64,7 +70,7 @@ body {
   font-size: 14px;
   margin-top: 10px;
   opacity: 0.8;
-  color: white; /* 텍스트 색상 흰색으로 변경 */
+  color: white; /* 텍스트 색상을 흰색으로 설정 */
 }
 
 /* 숨김 처리 */
