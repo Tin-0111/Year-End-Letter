@@ -34,7 +34,7 @@ function createCard(cardName) {
     const cardData = cards.find(c => c.name === cardName);
     if (userInput === cardData.key) {
       // 인증키가 맞으면 로딩화면 표시하고 메시지 불러오기
-      showLoadingMessage();
+      hideCardsAndShowLoading(); // 카드들을 서서히 숨기고 로딩 화면 보이기
       setTimeout(() => {
         displayCardContent(cardData); // 카드 내용 표시
       }, 2000); // 2초 후에 카드 내용 표시
@@ -64,15 +64,31 @@ function displayCardContent(card) {
   cardDisplay.appendChild(content);
   cardsContainer.innerHTML = ''; // 기존 카드들 제거
   cardsContainer.appendChild(cardDisplay);
+
+  // 카드 내용이 서서히 나타나도록 설정
+  cardDisplay.style.transition = 'opacity 1s ease';
+  cardDisplay.style.opacity = '0';  // 처음에는 투명하게 시작
+  setTimeout(() => {
+    cardDisplay.style.opacity = '1'; // 1초 뒤에 서서히 나타나게 설정
+  }, 100);
 }
 
-// 로딩 화면 표시
-function showLoadingMessage() {
+// 로딩 화면 표시 및 카드 서서히 숨기기
+function hideCardsAndShowLoading() {
+  // 카드들 서서히 숨기기
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.style.transition = 'opacity 1s ease';
+    card.style.opacity = '0';
+  });
+
+  // 로딩 화면 표시
   loadingContainer.classList.add('active');
-  const loadingText = document.createElement('div');
-  loadingText.classList.add('loading-text');
-  loadingText.textContent = "메시지를 불러오는 중...";
-  loadingContainer.appendChild(loadingText);
+  
+  // 로딩 화면을 서서히 사라지게 하기
+  setTimeout(() => {
+    loadingContainer.classList.remove('active'); // 2초 후 로딩 화면 사라짐
+  }, 2000);
 }
 
 // 검색 실행 함수
