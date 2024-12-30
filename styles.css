@@ -72,7 +72,7 @@ body {
 .subtitle {
   font-size: 16px; /* 하단 텍스트 크기 확대 */
   margin-top: 10px;
-  opacity: 0.8;
+  opacity: 1;
   color: white;
 }
 
