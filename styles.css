@@ -196,26 +196,24 @@ body {
 }
 
 .card-display {
-  width: 90%;
-  max-width: 400px;
-  margin: 0 auto;
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
   padding: 20px;
-  border: 2px solid white;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid white;
+  border-radius: 15px;
   overflow-y: auto; /* 세로 스크롤 활성화 */
   overflow-x: hidden; /* 가로 스크롤 숨기기 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-content {
   white-space: pre-line;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: white;
-  font-size: 23px;
 }
-
 
 .card-title {
   font-size: 32px;
