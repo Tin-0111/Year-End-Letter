@@ -1,9 +1,9 @@
-/* 기존 스타일 유지 */
+/* 기본 스타일 */
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url('3ffdefb4021d004175aa06658eabacd0.jpg') no-repeat center center fixed;
+  background: url('space.gif') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -14,20 +14,67 @@ body {
   text-align: center;
 }
 
+/* 검색창 컨테이너 */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  transition: opacity 0.5s ease;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* 숨김 처리 */
 .hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-.loading-container,
-.no-results {
+/* 로딩 화면 스타일 */
+.loading-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.loading-container {
   opacity: 0;
   visibility: hidden;
   display: flex;
@@ -52,7 +99,7 @@ body {
   font-size: 18px;
 }
 
-/* 카드 스타일 */
+/* 카드 컨테이너 */
 .cards-container {
   margin-top: 30px;
   display: flex;
@@ -60,6 +107,7 @@ body {
   align-items: center;
 }
 
+/* 카드 스타일 */
 .card {
   border: 2px solid white;
   background-color: transparent;
@@ -81,7 +129,12 @@ body {
   font-size: 18px;
 }
 
+/* 검색 결과 없음 스타일 */
 .no-results {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
