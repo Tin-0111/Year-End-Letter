@@ -1,4 +1,7 @@
-/* 기본 스타일 */
+/* Nanum Pen Script 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+/* 기본 글꼴 스타일 */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +13,7 @@ body {
   align-items: center;
   flex-direction: column;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: "Nanum Pen Script", serif; /* Nanum Pen Script 적용 */
   text-align: center;
 }
 
