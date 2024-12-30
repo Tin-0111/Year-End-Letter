@@ -7,7 +7,7 @@ const noResultsContainer = document.querySelector('.no-results');
 
 // 카드 목록 (임시 데이터)
 const cards = [
-  { name: 'AA', key: '1', content: '내용 AA' },
+  { name: 'AA', key: '1', content: '내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트내용이 얼마나 길어질수있을지 테스트' },
   { name: 'BB', key: '2', content: '내용 BB' },
   { name: 'CC', key: '3', content: '내용 CC' },
   { name: 'A', key: '4', content: '내용 A' },
