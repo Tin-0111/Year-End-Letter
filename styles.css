@@ -1,7 +1,5 @@
-/* Nanum Pen Script 폰트 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
-/* 기본 스타일 */
 body {
   margin: 0;
   padding: 0;
@@ -15,21 +13,20 @@ body {
   color: white;
   font-family: "Nanum Pen Script", serif;
   text-align: center;
-  font-size: 18px; /* 기본 글씨 크기 */
+  font-size: 18px;
 }
 
-/* 검색창 컨테이너 */
 .search-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 왼쪽 정렬 */
+  align-items: flex-start;
   width: 100%;
   max-width: 600px;
   transition: opacity 0.5s ease;
 }
 
 .title {
-  font-size: 28px; /* 제목 글씨 크기 확대 */
+  font-size: 28px;
   margin-bottom: 20px;
 }
 
@@ -54,7 +51,6 @@ body {
   caret-color: white;
 }
 
-/* `placeholder` 텍스트 색상 */
 .search-box input::placeholder {
   color: white;
   opacity: 0.7;
@@ -70,24 +66,21 @@ body {
 }
 
 .subtitle {
-  font-size: 16px; /* 하단 텍스트 크기 확대 */
+  font-size: 16px;
   margin-top: 10px;
   opacity: 1;
   color: white;
 }
 
-/* 텍스트 정렬을 검색창과 일치 */
 .title, .subtitle {
-  margin-left: 20px; /* 검색창과 동일한 시작 지점으로 이동 */
+  margin-left: 20px;
 }
 
-/* 숨김 처리 */
 .hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-/* 로딩 화면 스타일 */
 .loading-container {
   position: absolute;
   top: 50%;
@@ -117,7 +110,6 @@ body {
   font-size: 20px;
 }
 
-/* 카드 컨테이너 */
 .cards-container {
   margin-top: 30px;
   display: flex;
@@ -125,7 +117,6 @@ body {
   align-items: center;
 }
 
-/* 카드 스타일 */
 .card {
   border: 2px solid white;
   background-color: transparent;
@@ -147,7 +138,6 @@ body {
   font-size: 20px;
 }
 
-/* 검색 결과 없음 스타일 */
 .no-results {
   position: absolute;
   top: 50%;
@@ -176,7 +166,6 @@ body {
   margin-top: 10px;
 }
 
-/* 홈 버튼 스타일 */
 .home-button {
   position: absolute;
   top: 20px;
@@ -204,8 +193,8 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
   border: 3px solid white;
   border-radius: 15px;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
-  overflow-x: hidden; /* 가로 스크롤 숨기기 */
+  overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -224,7 +213,6 @@ body {
 }
 
 
-/* 미디어 쿼리 (모바일 대응) */
 @media (max-width: 600px) {
   .card-display {
     width: 95%;
