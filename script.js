@@ -144,3 +144,16 @@ searchInput.addEventListener('keydown', (event) => {
     executeSearch();
   }
 });
+
+// F12 키와 Win+Shift+I 단축키 차단
+document.addEventListener('keydown', function(event) {
+    // F12 키 차단
+    if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+        event.preventDefault(); // 기본 동작(개발자 도구 열기) 방지
+    }
+});
+
+// 마우스 오른쪽 클릭 차단
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // 오른쪽 클릭 방지
+});
